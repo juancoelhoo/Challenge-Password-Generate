@@ -10,14 +10,12 @@ const PasswordDisplay = ({ password }) => {
 
   return (
     password && (
-      <>
-        <div className="password-display">
-          <div className="password">{password}</div>
-        </div>
+      <div className="password-display">
+        <div className="password">{password}</div>
         <button className="btn-copy" onClick={copyToClipboard}>
           <img src="src/assets/images/copy-icon.svg" alt="Copy Icon" />
         </button>
-      </>
+      </div>
     )
   );
 };

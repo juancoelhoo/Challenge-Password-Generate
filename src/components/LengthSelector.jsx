@@ -3,8 +3,10 @@ import React from "react";
 const LengthSelector = ({ length, setLength }) => {
   return (
     <div className="length-container">
-      <div className="text">Character Length</div>
-      <div className="length">{length}</div>
+      <div className="text-and-length">
+        <div className="text">Character Length</div>
+        <div className="length">{length}</div>
+      </div>
       <input
         type="range"
         min="8"

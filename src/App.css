@@ -39,22 +39,19 @@ h1 {
   border: none;
   color: #ffffff;
   font-size: 18px;
-  width: 100%;
   text-align: left;
+  flex-grow: 1; /* Allow the password display to grow to fill available space */
 }
 
 .btn-copy {
   background: none;
   border: none;
   cursor: pointer;
+  margin-left: 10px; /* Add space between the password and the button */
 }
 
 .length-container {
   margin-bottom: 20px;
-}
-
-.text {
-  margin-bottom: 10px;
 }
 
 .length-selector {
@@ -69,9 +66,17 @@ h1 {
 
 .length {
   color: #a4ffaf; /* Change this to your desired color */
-  font-size: 18px;
+  font-size: 2rem;
   margin-bottom: 10px;
 }
+
+.text-and-length {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
 
 .options label {
   display: block;

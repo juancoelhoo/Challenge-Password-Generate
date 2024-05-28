@@ -3,7 +3,6 @@
 body {
   background-color: #18171f;
   color: #ffffff;
-  font-family: "Arial", sans-serif;
   display: flex;
   justify-content: center;
   font-family: 'JetBrains Mono', monospace;
@@ -12,7 +11,24 @@ body {
   margin: 0;
 }
 
-.container {
+
+.password-generator h1{
+  text-align: center;
+  color: #53525a;
+}
+
+.container1{
+  background-color: #24232b;
+  
+}
+
+.container1 .password{
+  margin-left: 10px;
+  font-size: 1.5rem;
+}
+
+
+.container2 {
   background-color: #24232b;
   padding: 20px;
   width: 400px;
@@ -28,7 +44,6 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1d1d1d;
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 20px;
@@ -40,14 +55,14 @@ h1 {
   color: #ffffff;
   font-size: 18px;
   text-align: left;
-  flex-grow: 1; /* Allow the password display to grow to fill available space */
+  flex-grow: 1;
 }
 
 .btn-copy {
   background: none;
   border: none;
   cursor: pointer;
-  margin-left: 10px; /* Add space between the password and the button */
+  margin-left: 10px;
 }
 
 .length-container {
@@ -65,7 +80,7 @@ h1 {
 
 
 .length {
-  color: #a4ffaf; /* Change this to your desired color */
+  color: #a4ffaf;
   font-size: 2rem;
   margin-bottom: 10px;
 }
@@ -77,12 +92,29 @@ h1 {
   margin-bottom: 5px;
 }
 
-
 .options label {
-  display: block;
+  display: flex;
   margin-bottom: 15px;
   text-align: left;
+  align-items: center;
   accent-color: #93e99f;
+}
+
+.options input[type="checkbox"] {
+  width: 17px; 
+  height: 17px; 
+  margin-right: 15px; 
+  appearance: none; 
+  border: 2px solid #ffffff;
+  background-color: transparent;
+  outline: none; 
+  cursor: pointer;
+}
+
+.options input[type="checkbox"]:checked {
+  opacity: 1;
+  background-color: #a4ffaf;
+  border-color: #a4ffaf;
 }
 
 .generate-btn {

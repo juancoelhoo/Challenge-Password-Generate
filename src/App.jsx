@@ -24,12 +24,16 @@ const App = () => {
   };
 
   return (
-    <div className="container">
+    <div className="password-generator">
       <h1>Password Generator</h1>
-      <PasswordDisplay password={password} />
-      <LengthSelector length={length} setLength={setLength} />
-      <OptionsSelector />
-      <GenerateButton generatePassword={generatePassword} />
+      <div className="container1">
+        <PasswordDisplay password={password} />
+      </div>
+      <div className="container2">
+        <LengthSelector length={length} setLength={setLength} />
+        <OptionsSelector />
+        <GenerateButton generatePassword={generatePassword} />
+      </div>
     </div>
   );
 };

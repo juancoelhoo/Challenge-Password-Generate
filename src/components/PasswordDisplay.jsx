@@ -15,7 +15,7 @@ const PasswordDisplay = ({ password }) => {
           <div className="password">{password}</div>
         </div>
         <button className="btn-copy" onClick={copyToClipboard}>
-          <img src="src/assets/copy-icon.svg" alt="Copy Icon" />
+          <img src="src/assets/images/copy-icon.svg" alt="Copy Icon" />
         </button>
       </>
     )

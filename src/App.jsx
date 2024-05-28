@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import LengthSelector from "./components/LengthSelector";
+import OptionsSelector from "./components/OptionsSelector";
+import PasswordDisplay from "./components/PasswordDisplay";
+import GenerateButton from "./components/GenerateButton";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [length, setLength] = useState(10); //Inicializa o estado do seletor de comprimento
+  const [password, setPassword] = useState("P4$5W0rD!"); //Inicializa o estado da senha
+
+  const generatePassword = () => {
+    // Algoritmo de gerar senhas (Só a funcionalidade de comprimento tá funcionando no momento)
+    let allChars =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?"; //String contendo todos os caracteres de forma provisória
+
+    let generatedPassword = "";
+    for (let i = 0; i < length; i++) {
+      //Loop que seleciona caracteres aleatorios de um array com os caracteres (esse array não deve conter todos os caracteres igual tá agora, ele deve ter somente o marcado)
+      const randomIndex = Math.floor(Math.random() * allChars.length);
+      generatedPassword += allChars[randomIndex];
+    }
+    setPassword(generatedPassword); //Atualiza o estado da senha com a senha gerada
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="container">
+      <h1>Password Generator</h1>
+      <PasswordDisplay password={password} />
+      <LengthSelector length={length} setLength={setLength} />
+      <OptionsSelector />
+      <GenerateButton generatePassword={generatePassword} />
+    </div>
+  );
+};
 
-export default App
+export default App;

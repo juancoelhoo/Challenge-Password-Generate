@@ -59,24 +59,43 @@ h1 {
 
 .length-selector {
   width: 100%;
+  outline: none;
+  height: 8px;
+  border-radius: 5px;
+  accent-color: #a4ffaf;
+  cursor: pointer;
+}
+
+
+.length {
+  color: #a4ffaf; /* Change this to your desired color */
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .options label {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  text-align: left;
+  accent-color: #93e99f;
 }
 
 .generate-btn {
   background-color: #a4ffaf;
   color: #18171f;
-  border: none;
+  border: 1px solid transparent;
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
-  transition: background-color 0.3s;
+  transition: background-color 0.1s;
   width: 100%;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  box-sizing: border-box;
 }
 
 .generate-btn:hover {
-  background-color: #93e99f;
+  background-color: #24232b;
+  color: #a4ffaf;
+  border:1px solid #a4ffaf;
 }

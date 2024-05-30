@@ -136,3 +136,7 @@ h1 {
   color: #a4ffaf;
   border:1px solid #a4ffaf;
 }
+
+.pass_strength {
+  text-transform: uppercase;
+}

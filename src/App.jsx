@@ -3,25 +3,54 @@ import LengthSelector from "./components/LengthSelector";
 import OptionsSelector from "./components/OptionsSelector";
 import PasswordDisplay from "./components/PasswordDisplay";
 import GenerateButton from "./components/GenerateButton";
+
 import "./App.css";
 
 const App = () => {
   const [length, setLength] = useState(10); //Inicializa o estado do seletor de comprimento
   const [password, setPassword] = useState("P4$5W0rD!"); //Inicializa o estado da senha
+  const [strength, setStrength] = useState(0);
+  const [options, setOptions] = useState({
+    uppercase: false,
+    lowercase: false,
+    numbers: false,
+    symbols: false,
+  });
 
   const generatePassword = () => {
-    // Algoritmo de gerar senhas (Só a funcionalidade de comprimento tá funcionando no momento)
-    let allChars =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?"; //String contendo todos os caracteres de forma provisória
+  
+    const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+    const numberChars = "0123456789";
+    const symbolChars = "!@#$%^&*()_+[]{}|;:,.<>?";
+
+    let availableChars = "";
+
+    if (options.uppercase) availableChars += uppercaseChars;
+    if (options.lowercase) availableChars += lowercaseChars;
+    if (options.numbers) availableChars += numberChars;
+    if (options.symbols) availableChars += symbolChars;
+
+    if (availableChars === "") {
+      setPassword("");
+      return;
+    }
 
     let generatedPassword = "";
     for (let i = 0; i < length; i++) {
-      //Loop que seleciona caracteres aleatorios de um array com os caracteres (esse array não deve conter todos os caracteres igual tá agora, ele deve ter somente o marcado)
-      const randomIndex = Math.floor(Math.random() * allChars.length);
-      generatedPassword += allChars[randomIndex];
+      const randomIndex = Math.floor(Math.random() * availableChars.length);
+      generatedPassword += availableChars[randomIndex];
     }
     setPassword(generatedPassword); //Atualiza o estado da senha com a senha gerada
   };
+
+  const handleStrengthChange = (newStrength) => {
+    setStrength(newStrength);
+  }
+
+  const handleOptionsChange = (newOptions) => {
+    setOptions(newOptions);
+  }
 
   return (
     <div className="password-generator">
@@ -31,7 +60,10 @@ const App = () => {
       </div>
       <div className="container2">
         <LengthSelector length={length} setLength={setLength} />
-        <OptionsSelector />
+        <OptionsSelector 
+          onStrengthChange={handleStrengthChange}
+          onOptionsChange={handleOptionsChange}
+       />
         <GenerateButton generatePassword={generatePassword} />
       </div>
     </div>

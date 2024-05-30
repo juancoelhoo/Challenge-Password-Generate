@@ -49,10 +49,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-.initial-password .password {
-  color: gray; /* Change the color to gray for the initial state */
-}
-
 .password {
   background: none;
   border: none;

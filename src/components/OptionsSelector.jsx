@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import StrengthViewer from "./StrengthViewer";
 
 const OptionsSelector = ({onStrengthChange, onOptionsChange}) => {
   const[strength, setStrength] = useState(0);
@@ -27,19 +28,6 @@ const OptionsSelector = ({onStrengthChange, onOptionsChange}) => {
       onStrengthChange(strength);
     }
   }, [strength, onStrengthChange]);
-
-  let strengthText;
-  if (strength === 0) {
-    strengthText = "";
-  } else if (strength === 1) {
-    strengthText = "Weak";
-  } else if (strength === 2) {
-    strengthText = "OK";
-  } else if (strength === 3) {
-    strengthText = "Medium";
-  } else if (strength === 4) {
-    strengthText = "Strong";
-  }
   
   return (
     <div>
@@ -81,19 +69,8 @@ const OptionsSelector = ({onStrengthChange, onOptionsChange}) => {
           Include Symbols
         </label>
       </div>
-
-      <div className="pass_strength">
-        <div className="strength_word">Strength</div>
-        <div className="container_side">
-          <div className="strength_changes">{strengthText}</div>
-          <div className="bars">
-            <div style={{ backgroundColor: strength > 0 ? "#ffc300" : "black" }}></div>
-            <div style={{ backgroundColor: strength > 1 ? "#ffc300" : "black" }}></div>
-            <div style={{ backgroundColor: strength > 2 ? "#ffc300" : "black" }}></div>
-            <div style={{ backgroundColor: strength > 3 ? "#ffc300" : "black" }}></div>
-          </div>
-        </div>
-      </div>
+      <StrengthViewer strength={strength}></StrengthViewer>
+      
     </div>
   );
 };

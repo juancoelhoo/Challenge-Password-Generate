@@ -144,3 +144,15 @@ h1 {
 .pass_strength {
   text-transform: uppercase;
 }
+
+.pass_strength {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  background-color: #18171f;
+  padding: 15px;
+}
+
+.strength_word{
+  color: #53525a;
+}

@@ -66,7 +66,6 @@ const App = () => {
           onStrengthChange={handleStrengthChange}
           onOptionsChange={handleOptionsChange}
         />
-        <StrengthViewer></StrengthViewer>
         <GenerateButton generatePassword={generatePassword} />
       </div>
     </div>

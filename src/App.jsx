@@ -3,6 +3,7 @@ import LengthSelector from "./components/LengthSelector";
 import OptionsSelector from "./components/OptionsSelector";
 import PasswordDisplay from "./components/PasswordDisplay";
 import GenerateButton from "./components/GenerateButton";
+import StrengthViewer from "./components/StrengthViewer";
 
 import "./App.css";
 
@@ -65,6 +66,7 @@ const App = () => {
           onStrengthChange={handleStrengthChange}
           onOptionsChange={handleOptionsChange}
         />
+        <StrengthViewer></StrengthViewer>
         <GenerateButton generatePassword={generatePassword} />
       </div>
     </div>

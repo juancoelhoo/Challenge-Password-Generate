@@ -7,8 +7,8 @@ import GenerateButton from "./components/GenerateButton";
 import "./App.css";
 
 const App = () => {
-  const [length, setLength] = useState(10); //Inicializa o estado do seletor de comprimento
-  const [password, setPassword] = useState("P4$5W0rD!"); //Inicializa o estado da senha
+  const [length, setLength] = useState(10); // Inicializa o estado do seletor de comprimento
+  const [password, setPassword] = useState("P4$5W0rD!"); // Inicializa o estado da senha
   const [strength, setStrength] = useState(0);
   const [options, setOptions] = useState({
     uppercase: false,
@@ -18,7 +18,6 @@ const App = () => {
   });
 
   const generatePassword = () => {
-  
     const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
     const numberChars = "0123456789";
@@ -41,29 +40,31 @@ const App = () => {
       const randomIndex = Math.floor(Math.random() * availableChars.length);
       generatedPassword += availableChars[randomIndex];
     }
-    setPassword(generatedPassword); //Atualiza o estado da senha com a senha gerada
+    setPassword(generatedPassword); // Atualiza o estado da senha com a senha gerada
   };
 
   const handleStrengthChange = (newStrength) => {
     setStrength(newStrength);
-  }
+  };
 
   const handleOptionsChange = (newOptions) => {
     setOptions(newOptions);
-  }
+  };
+
+  const isInitialPassword = password === "P4$5W0rD!";
 
   return (
     <div className="password-generator">
       <h1>Password Generator</h1>
       <div className="container1">
-        <PasswordDisplay password={password} />
+        <PasswordDisplay password={password} isInitial={isInitialPassword} />
       </div>
       <div className="container2">
         <LengthSelector length={length} setLength={setLength} />
-        <OptionsSelector 
+        <OptionsSelector
           onStrengthChange={handleStrengthChange}
           onOptionsChange={handleOptionsChange}
-       />
+        />
         <GenerateButton generatePassword={generatePassword} />
       </div>
     </div>

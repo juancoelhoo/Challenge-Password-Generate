@@ -3,13 +3,12 @@ import LengthSelector from "./components/LengthSelector";
 import OptionsSelector from "./components/OptionsSelector";
 import PasswordDisplay from "./components/PasswordDisplay";
 import GenerateButton from "./components/GenerateButton";
-import StrengthViewer from "./components/StrengthViewer";
 
 import "./App.css";
 
 const App = () => {
-  const [length, setLength] = useState(10); // Inicializa o estado do seletor de comprimento
-  const [password, setPassword] = useState("P4$5W0rD!"); // Inicializa o estado da senha
+  const [length, setLength] = useState(10);
+  const [password, setPassword] = useState("P4$5W0rD!");
   const [strength, setStrength] = useState(0);
   const [options, setOptions] = useState({
     uppercase: false,
@@ -32,7 +31,7 @@ const App = () => {
     if (options.symbols) availableChars += symbolChars;
 
     if (availableChars === "") {
-      setPassword("");
+      alert("Please select at least one option.");
       return;
     }
 
@@ -41,7 +40,7 @@ const App = () => {
       const randomIndex = Math.floor(Math.random() * availableChars.length);
       generatedPassword += availableChars[randomIndex];
     }
-    setPassword(generatedPassword); // Atualiza o estado da senha com a senha gerada
+    setPassword(generatedPassword);
   };
 
   const handleStrengthChange = (newStrength) => {
@@ -63,6 +62,7 @@ const App = () => {
       <div className="container2">
         <LengthSelector length={length} setLength={setLength} />
         <OptionsSelector
+          length={length}
           onStrengthChange={handleStrengthChange}
           onOptionsChange={handleOptionsChange}
         />
